@@ -65,8 +65,6 @@ class Cajero:
             num.destroy()
             ed.destroy()
             Continuar.destroy()
-    def TT(self):
-        self.w=2
     def gg(self):
         global Total
         
