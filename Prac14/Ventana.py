@@ -1,37 +1,25 @@
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk 
-from tkinter import Entry
 from Clase import *
 
 ventana = Tk()
-ventana.title("Pedidos")
-ventana.geometry("600x400")
+ventana.title("Cajero")
+seccion2=Frame(ventana,bg="purple")
+seccion2.pack(expand=True,fill="both")
 seccion1=Frame(ventana,bg="green")
 seccion1.pack(expand=True,fill='both')
-Met = Label(seccion1, text="Seleccione accion a realizar", bg="green")
-Met.pack()
-metodos = ["Ingresar efectivo", "Retirar Efectivo","Consultar saldo", "Depositar a otra cuenta"]
-opcion_seleccionada = tk.StringVar()
-Metodo = ttk.Combobox(seccion1, textvariable=opcion_seleccionada, values=metodos)
-Metodo.pack()
-Num = Label(seccion1, bg="green")
-dinero=ttk.Entry(seccion1)
-def acc():
-    if Metodo.get() == "Ingresar efectivo":
-        Num.config(text="Ingrese la cantidad a depositar")
-        dinero.config(textvariable="")
-    elif Metodo.get() == "Retirar Efectivo":
-        Num.config(text="Ingrese la cantidad a retirar")
-        dinero.config(textvariable="")
-    elif Metodo.get() == "Consultar saldo":
-        Num.config(text="Su saldo es: ")
-        dinero.config(textvariable="")
-    elif Metodo.get() == "Depositar a otra cuenta":
-        Num.config(text="Ingrese el número de cuenta")
-        dinero.config(textvariable="")
-    Num.pack()
-    dinero.pack()
-Continuar=Button(seccion1,text="continuar",bg="black",fg="white",command=acc)
-Continuar.pack()
+Ses = Label(seccion2, text="Iniciar sesion o registrarse", bg="purple")
+Ses.pack()
+sesion = ["Iniciar sesion", "Registrarse"]
+opcion_seleccionada1 = tk.StringVar()
+Sesion = ttk.Combobox(seccion2, textvariable=opcion_seleccionada1, values=sesion)
+Sesion.pack()
+
+Saldo = 15000
+In = Cajero(Sesion,Saldo,seccion1,seccion2)
+Iniciar=Button(seccion2,text="continuar",bg="black",fg="white",command=In.inicio)
+Iniciar.pack()
+        
+
 ventana.mainloop()
