@@ -32,7 +32,7 @@ class Cajero:
             edad=0
         else:
             edad=int(self.Edad.get())
-        if self.Nombre.get()=="" or self.Edad.get()=="" or self.NC.get=="":
+        if self.Nombre.get()=="" or self.Edad.get()=="" or self.NC.get()=="":
             messagebox.showerror("Error","Uno o más datos no han sido ingresados")
         elif edad < 18:
             messagebox.showerror("Error","Debe ser mayor de edad para poder ingresar")
